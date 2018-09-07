@@ -20,16 +20,17 @@
         </activity>
         <activity
             android:name=".SignIn"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppDarkTheme" />
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".SignUp"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppDarkTheme"></activity>
+        <activity
+            android:name=".SignUp"
+            android:screenOrientation="portrait" />
+        <activity android:name=".content.ActivityHome"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

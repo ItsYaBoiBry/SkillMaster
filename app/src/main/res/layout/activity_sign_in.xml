@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/login_page"
     android:layout_height="match_parent"
     tools:context=".SignIn">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/sign_in_bg"
-        android:scaleType="centerCrop"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#80000000"/>
-
-
+        android:scaleType="centerCrop"
+        android:src="@drawable/sign_in_bg" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:background="#80000000" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/tool"
@@ -46,97 +46,76 @@
         </RelativeLayout>
 
         <ImageView
-            android:layout_marginTop="25dp"
             android:id="@+id/sign_in_logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:src="@drawable/main_screen_logo" />
-
         <EditText
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="25dp"
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:padding="8dp"
-            android:textColorHint="@color/white"
-            android:background="@null"
-            android:textColor="@color/white"
-            android:hint="Username"/>
-
-        <View
-            android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
-            android:layout_width="fill_parent"
-            android:layout_height="2dip"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:background="@color/grey" />
-
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/grey"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
         <EditText
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="25dp"
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:padding="8dp"
-            android:textColorHint="@color/white"
-            android:inputType="textPassword"
-            android:background="@null"
-            android:textColor="@color/white"
-            android:hint="Password"/>
-
-
-        <View
-            android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
-            android:layout_width="fill_parent"
-            android:layout_height="2dip"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            android:background="@color/grey" />
-
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/grey"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
         <Button
             android:id="@+id/signin"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="25dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign In"
-            android:textColor="@color/white"
-            android:fontFamily="@font/montserrat_bold"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/round_red_btn"
-            android:padding="8dp"/>
+            android:fontFamily="@font/montserrat_bold"
+            android:padding="8dp"
+            android:text="Sign In"
+            android:textColor="@color/white" />
 
 
         <TextView
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="25dp"
             android:id="@+id/tvForgotPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="8dp"
+            android:gravity="center"
             android:padding="8dp"
             android:text="Forgot your password?"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
 
         <TextView
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="25dp"
             android:id="@+id/tvHaveAccount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="25dp"
             android:layout_marginTop="100dp"
+            android:gravity="center"
             android:padding="8dp"
             android:text="Already have an account?"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white" />
 
     </LinearLayout>
 </RelativeLayout>

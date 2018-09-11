@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">SkillMaster</string>
+    <string name="success">success</string>
+    <string name="error">error</string>
     <string name="pp">Please note Privacy Policy and Terms of Use. By continuing to use the Site, you are accepting our privacy policy and terms of use stated herein.
 
 \n\nPrivacy Policy &amp; Legal Terms of Use

@@ -76,4 +76,21 @@ public class Sessions {
                 , preferences.getString(user.user_salary_key, "")
         );
     }
+    public String GetToken(){
+        return preferences.getString(token_key,"");
+    }
+    public void Logout(){
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        editor.apply();
+
+    }
+    public Boolean CheckLogin(){
+        User user = new User();
+        if(preferences.contains(user.user_id_key)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

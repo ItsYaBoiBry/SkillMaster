@@ -18,6 +18,9 @@ public class User implements Serializable{
     public String user_race_key = "race";
     public String user_occupation_key = "occupation";
     public String user_salary_key = "salary";
+
+    public String user_password_key = "password";
+    public String user_cmf_password_key = "c_password";
     private int user_id;
     private String user_name, user_email, user_created_at, user_updated_at, user_mobile, user_address, user_nric, user_dob, user_gender, user_nationality, user_education_level, user_race, user_occupation, user_salary;
     public User(){

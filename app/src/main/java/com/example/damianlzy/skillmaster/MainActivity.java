@@ -9,6 +9,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
+import com.example.damianlzy.skillmaster.content.ActivityHome;
+import com.example.damianlzy.skillmaster.functions.Sessions;
+
 public class MainActivity extends AppCompatActivity {
 
     Button btnSignIn, btnSignUp;
@@ -17,7 +20,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //initializeStatusBar();
+        Sessions sessions = new Sessions(MainActivity.this);
+        if(sessions.CheckLogin()){
+            startActivity(new Intent(MainActivity.this,ActivityHome.class));
+            finish();
+        }
         btnSignUp = findViewById(R.id.btnSignUp);
         btnSignIn = findViewById(R.id.btnSignIn);
         btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -34,14 +41,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    public void initializeStatusBar () {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window w = getWindow(); // in Activity's onCreate() for instance
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            w.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-            w.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
     }
 }

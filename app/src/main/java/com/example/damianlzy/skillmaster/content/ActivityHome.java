@@ -30,7 +30,7 @@ import org.json.JSONObject;
 import java.util.concurrent.ExecutionException;
 
 public class ActivityHome extends AppCompatActivity {
-    TextView menuName, menuOccupation, menuEmail, menuPhone, menuHome, menuNewsUpdate, menuProfile, menuLogout, toolabarTitle;
+    TextView menuName, menuOccupation, menuEmail, menuPhone, menuHome, menuProfile, menuLogout, toolabarTitle;
     DrawerLayout drawerLayout;
     FragmentTransaction ft;
     Toolbar toolbar;
@@ -77,7 +77,7 @@ public class ActivityHome extends AppCompatActivity {
         menuPhone.setText(user.getUser_mobile());
 
         if(savedInstanceState==null){
-            toolabarTitle.setText("Home");
+            toolabarTitle.setText("Courses");
             Bundle bundle = new Bundle();
             bundle.putString("courses",getcourses);
             replacefragment(new FragmentHome(),bundle);
@@ -105,7 +105,7 @@ public class ActivityHome extends AppCompatActivity {
     private void configureNavigationDrawer() {
         drawerLayout = findViewById(R.id.drawer_layout);
         menuHome = findViewById(R.id.menu_home);
-        menuNewsUpdate = findViewById(R.id.menu_news_update);
+//        menuNewsUpdate = findViewById(R.id.menu_news_update);
         menuProfile = findViewById(R.id.menu_profile);
         menuLogout = findViewById(R.id.menu_logout);
         menuHome.setOnClickListener(new View.OnClickListener() {
@@ -118,14 +118,14 @@ public class ActivityHome extends AppCompatActivity {
                 CloseDrawer();
             }
         });
-        menuNewsUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toolabarTitle.setText("News Updates");
-                replacefragment(new FragmentNewsUpdate(),null);
-                CloseDrawer();
-            }
-        });
+//        menuNewsUpdate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                toolabarTitle.setText("News Updates");
+//                replacefragment(new FragmentNewsUpdate(),null);
+//                CloseDrawer();
+//            }
+//        });
         menuProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

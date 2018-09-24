@@ -95,34 +95,6 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:textSize="15sp" />
-            <EditText
-                android:id="@+id/et_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/sign_up_custom_edittext"
-                android:hint="Password"
-                android:padding="15dp"
-                android:inputType="textPassword"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="15sp" />
-            <EditText
-                android:id="@+id/et_cfm_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:inputType="textPassword"
-                android:background="@drawable/sign_up_custom_edittext"
-                android:hint="Confirm Password"
-                android:padding="15dp"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:textSize="15sp" />
 
             <EditText
                 android:id="@+id/et_address"

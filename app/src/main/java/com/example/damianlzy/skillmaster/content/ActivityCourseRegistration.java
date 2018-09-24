@@ -16,26 +16,19 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.damianlzy.skillmaster.R;
-import com.example.damianlzy.skillmaster.SignUp;
-import com.example.damianlzy.skillmaster.functions.PostRequest;
-import com.example.damianlzy.skillmaster.functions.SendRequest;
 import com.example.damianlzy.skillmaster.functions.Sessions;
-import com.example.damianlzy.skillmaster.model.Links;
+import com.example.damianlzy.skillmaster.model.CourseDetails;
 import com.example.damianlzy.skillmaster.model.User;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.concurrent.ExecutionException;
 
 public class ActivityCourseRegistration extends AppCompatActivity {
 
     Toolbar toolbar;
-    EditText etFullName, etMobile, etEmail, etPassword, etCfmPassword, etAddress, etNRIC, etNationality, etEducationLevel, etRace, etOccupation, etSalary;
+    EditText etFullName, etMobile, etEmail, etAddress, etNRIC, etNationality, etEducationLevel, etRace, etOccupation, etSalary;
     TextView etGender, etDob;
     Button btnSignup;
     RelativeLayout signupPage;
@@ -45,12 +38,13 @@ public class ActivityCourseRegistration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_registration);
 
+
+
         final Sessions sessions = new Sessions(ActivityCourseRegistration.this);
         etFullName = findViewById(R.id.et_full_name);
         etMobile = findViewById(R.id.et_mobile);
         etEmail = findViewById(R.id.et_email);
-        etPassword = findViewById(R.id.et_password);
-        etCfmPassword = findViewById(R.id.et_cfm_password);
+
         etAddress = findViewById(R.id.et_address);
         etNRIC = findViewById(R.id.et_nric);
         etNationality = findViewById(R.id.et_nationality);
@@ -105,38 +99,62 @@ public class ActivityCourseRegistration extends AppCompatActivity {
                 hideSoftKeyBoard();
                 Log.e("Click", "Signup Clicked");
                 if (validate()) {
-                    Links links = new Links();
-                    SendRequest sendRequest = new SendRequest();
-                    try {
-                        JSONObject params = new JSONObject();
-                        params.put("email",etEmail.getText().toString().trim());
-                        params.put("password",etPassword.getText().toString().trim());
-                        params.put("c_password",etCfmPassword.getText().toString().trim());
-                        params.put("name",etFullName.getText().toString().trim());
-                        params.put("mobile",etMobile.getText().toString().trim());
-                        params.put("address",etAddress.getText().toString().trim());
-                        params.put("nric",etNRIC.getText().toString().trim());
-                        params.put("dob",etDob.getText().toString().trim());
-                        params.put("gender",etGender.getText().toString().trim());
-                        params.put("nationality",etNationality.getText().toString().trim());
-                        params.put("education_level",etEducationLevel.getText().toString().trim());
-                        params.put("race",etRace.getText().toString().trim());
-                        params.put("occupation",etOccupation.getText().toString().trim());
-                        params.put("salary",etSalary.getText().toString().trim());
-                        Intent intent = getIntent();
-                        Log.e("Course id",  intent.getIntExtra("course_id", -1)+ "");
-                        Log.e("Schedule id", intent.getIntExtra("schedule_id", -1) + "");
-                        params.put("course_id",intent.getIntExtra("course_id", -1));
-                        params.put("schedule_id",intent.getIntExtra("schedule_id", -1));
-                        String request = sendRequest.execute(links.registerCourseLink(),"",sessions.GetToken()).get();
-                        Log.e("REGISTER COURSE:",request);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    } catch (ExecutionException e) {
-                        e.printStackTrace();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+//                    Links links = new Links();
+//                    SendRequest sendRequest = new SendRequest();
+//                    try {
+//                        JSONObject params = new JSONObject();
+//                        params.put("email",etEmail.getText().toString().trim());
+//                        params.put("name",etFullName.getText().toString().trim());
+//                        params.put("mobile",etMobile.getText().toString().trim());
+//                        params.put("address",etAddress.getText().toString().trim());
+//                        params.put("nric",etNRIC.getText().toString().trim());
+//                        params.put("dob",etDob.getText().toString().trim());
+//                        params.put("gender",etGender.getText().toString().trim());
+//                        params.put("nationality",etNationality.getText().toString().trim());
+//                        params.put("education_level",etEducationLevel.getText().toString().trim());
+//                        params.put("race",etRace.getText().toString().trim());
+//                        params.put("occupation",etOccupation.getText().toString().trim());
+//                        params.put("salary",etSalary.getText().toString().trim());
+//                        Intent intent = getIntent();
+//
+//                        params.put("course_id",intent.getIntExtra("course_id", -1));
+//                        params.put("schedule_id",intent.getIntExtra("schedule_id", -1));
+//                        String request = sendRequest.execute(links.registerCourseLink(),"",sessions.GetToken()).get();
+//                        Log.e("REGISTER COURSE:",request);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    } catch (ExecutionException e) {
+//                        e.printStackTrace();
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+                    User u = new User();
+                    u.setUser_email(etEmail.getText().toString());
+                    u.setUser_name(etFullName.getText().toString());
+                    u.setUser_mobile(etMobile.getText().toString());
+                    u.setUser_address(etAddress.getText().toString());
+                    u.setUser_nric(etNRIC.getText().toString());
+                    u.setUser_dob(etDob.getText().toString());
+                    u.setUser_gender(etGender.getText().toString());
+                    u.setUser_nationality(etNationality.getText().toString());
+                    u.setUser_education_level(etEducationLevel.getText().toString());
+                    u.setUser_race(etRace.getText().toString());
+                    u.setUser_occupation(etOccupation.getText().toString());
+                    u.setUser_salary(etSalary.getText().toString());
+                    Intent intent = getIntent();
+                    int course_id = intent.getIntExtra("course_id", -1);
+                    int schedule_id = intent.getIntExtra("schedule_id", -1);
+                    Intent i = getIntent();
+                    startActivity(new Intent(ActivityCourseRegistration.this, ActivityPayment.class)
+                            .putExtra("user",u)
+                            .putExtra("course_id",course_id)
+                            .putExtra("schedule_id",schedule_id)
+                            .putExtra("course_name", i.getStringExtra("course_name"))
+                            .putExtra("course_instructor", i.getStringExtra("course_instructor"))
+                            .putExtra("course_description", i.getStringExtra("course_description"))
+                            .putExtra("course_address", i.getStringExtra("course_address"))
+                            .putExtra("course_fee", i.getStringExtra("course_fee"))
+                            .putExtra("course_schedule", i.getStringExtra("course_schedule")));
                 } else {
                     Snackbar snackbar = Snackbar
                             .make(signupPage, "Please fll in ALL details", Snackbar.LENGTH_LONG);
@@ -151,8 +169,6 @@ public class ActivityCourseRegistration extends AppCompatActivity {
         if (!hasText(etFullName)) check = false;
         if (!hasText(etMobile)) check = false;
         if (!hasText(etEmail)) check = false;
-        if (!hasText(etPassword)) check = false;
-        if (!hasText(etCfmPassword)) check = false;
         if (!hasText(etAddress)) check = false;
         if (!hasText(etNRIC)) check = false;
         if (!hasText(etNationality)) check = false;
@@ -192,7 +208,7 @@ public class ActivityCourseRegistration extends AppCompatActivity {
     private void SelectGender() {
         final CharSequence[] items = {"Male", "Female", "Cancel"};
         AlertDialog.Builder builder = new AlertDialog.Builder(ActivityCourseRegistration.this);
-        builder.setTitle("Select Time Slot");
+        builder.setTitle("Choose Gender");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

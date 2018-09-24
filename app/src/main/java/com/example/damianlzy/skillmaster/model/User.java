@@ -104,4 +104,64 @@ public class User implements Serializable{
     public String getUser_salary() {
         return user_salary;
     }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
+    }
+
+    public void setUser_created_at(String user_created_at) {
+        this.user_created_at = user_created_at;
+    }
+
+    public void setUser_updated_at(String user_updated_at) {
+        this.user_updated_at = user_updated_at;
+    }
+
+    public void setUser_mobile(String user_mobile) {
+        this.user_mobile = user_mobile;
+    }
+
+    public void setUser_address(String user_address) {
+        this.user_address = user_address;
+    }
+
+    public void setUser_nric(String user_nric) {
+        this.user_nric = user_nric;
+    }
+
+    public void setUser_dob(String user_dob) {
+        this.user_dob = user_dob;
+    }
+
+    public void setUser_gender(String user_gender) {
+        this.user_gender = user_gender;
+    }
+
+    public void setUser_nationality(String user_nationality) {
+        this.user_nationality = user_nationality;
+    }
+
+    public void setUser_education_level(String user_education_level) {
+        this.user_education_level = user_education_level;
+    }
+
+    public void setUser_race(String user_race) {
+        this.user_race = user_race;
+    }
+
+    public void setUser_occupation(String user_occupation) {
+        this.user_occupation = user_occupation;
+    }
+
+    public void setUser_salary(String user_salary) {
+        this.user_salary = user_salary;
+    }
 }

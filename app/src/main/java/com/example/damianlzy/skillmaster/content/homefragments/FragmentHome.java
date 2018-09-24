@@ -131,14 +131,22 @@ public class FragmentHome extends Fragment {
         Display display = getActivity().getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
-        int width = size.x;
+        int width = (size.x/2)-90;
         LinearLayout llItem = view.findViewById(R.id.ll_item);
-        llItem.setMinimumWidth((width/2)-5);
         ImageView ivCourse = view.findViewById(R.id.iv_course);
+        ivCourse.setMaxWidth(width);
+        ivCourse.setMinimumWidth(width);
+        ivCourse.setMaxHeight(550);
+        ivCourse.setMinimumHeight(550);
         TextView tvCourseTitle = view.findViewById(R.id.tv_course_title);
-//        Glide.with(getContext()).load("http://ehostingcenter.com/skillmaster/"+courses.getCourse_prod_picture()).into(ivCourse);
+        TextView tvCourseFees = view.findViewById(R.id.tv_course_fees);
+        tvCourseTitle.setMaxWidth(width);
+        tvCourseTitle.setMinimumWidth(width);
+        tvCourseFees.setMaxWidth(width);
+        tvCourseFees.setMinimumWidth(width);
         Glide.with(getContext()).load(filepath+courses.getCourse_prod_picture()).into(ivCourse);
         tvCourseTitle.setText(courses.getCourse_name());
+        tvCourseFees.setText("Course Fee: $"+courses.getCourse_course_fee());
         llItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -35,7 +35,8 @@
             android:name=".content.ActivityHome"
             android:screenOrientation="portrait" />
         <activity android:name=".content.ActivityCourseDetails" />
-        <activity android:name=".content.ActivityCourseRegistration"></activity>
+        <activity android:name=".content.ActivityCourseRegistration" />
+        <activity android:name=".content.ActivityPayment"></activity>
     </application>
 
 </manifest>

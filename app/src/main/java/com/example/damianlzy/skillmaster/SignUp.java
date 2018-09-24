@@ -278,7 +278,7 @@ public class SignUp extends AppCompatActivity {
     private void SelectGender() {
         final CharSequence[] items = {"Male", "Female", "Cancel"};
         AlertDialog.Builder builder = new AlertDialog.Builder(SignUp.this);
-        builder.setTitle("Select Time Slot");
+        builder.setTitle("Choose Gender");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Courses"
+            android:text="Course details"
             android:textColor="@color/white"
             android:textSize="17sp" />
     </RelativeLayout>
@@ -38,6 +38,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:layout_margin="10dp"
                 android:id="@+id/tv_course_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -63,14 +64,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="INSTRUCTORS"
+                    android:text="INSTRUCTOR(S)"
                     android:textColor="@color/grey" />
 
                 <TextView
                     android:id="@+id/tv_course_instructors"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/grey" />
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -83,14 +84,18 @@
                     android:id="@+id/tv_course_categories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/white" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:text="DETAILS"
                     android:textColor="@color/grey" />
-
                 <TextView
                     android:id="@+id/tv_course_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:textColor="@color/grey" />
+                    android:textColor="@color/white" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -178,6 +183,7 @@
                     android:textColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_arrow_drop_down"
                     android:background="@drawable/language_button_selected_background"/>
                 <Button
                     android:id="@+id/btn_register_course"
